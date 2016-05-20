@@ -76,7 +76,6 @@ source $BIN_DIR/warnings
 # Directory Hacks for path consistency.
 APP_DIR='/app'
 TMP_APP_DIR=$CACHE_DIR/tmp_app_dir
-
 # Skip these steps for Docker.
 if [[ ! "$DOCKER_BUILD" ]]; then
 
@@ -117,6 +116,7 @@ export CPLUS_INCLUDE_PATH=/app/.heroku/vendor/include:$BUILD_DIR/.heroku/vendor/
 export LIBRARY_PATH=/app/.heroku/vendor/lib:$BUILD_DIR/.heroku/vendor/lib:/app/.heroku/python/lib:$LIBRARY_PATH
 export LD_LIBRARY_PATH=/app/.heroku/vendor/lib:$BUILD_DIR/.heroku/vendor/lib:/app/.heroku/python/lib:$LD_LIBRARY_PATH
 export PKG_CONFIG_PATH=/app/.heroku/vendor/lib/pkg-config:$BUILD_DIR/.heroku/vendor/lib/pkg-config:/app/.heroku/python/lib/pkg-config:$PKG_CONFIG_PATH
+XMLSEC_CONFIG='--prefix /app/.apt/usr'
 
 # Switch to the repo's context.
 cd $BUILD_DIR
